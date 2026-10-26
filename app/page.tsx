@@ -1,834 +1,593 @@
-"use client";
+ "use client";
 
 import { useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 
-const projects = [
+const ghlProjects = [
+  {
+    title: "FreshCut Barbershop",
+    category: "Booking Funnel · CRM · Booking Setup · Email Confirmation",
+    description:
+      "A GoHighLevel practice project for a men's grooming business, designed to streamline the haircut booking process by allowing customers to explore the service and conveniently schedule their appointments online.",
+    objective:
+      "Create a streamlined booking funnel for a men's grooming business that allows customers to explore haircut services, choose their preferred appointment date and time, and conveniently submit their booking details online.",
+    implementation: [
+      "Designed a straightforward booking funnel for customers looking to schedule a haircut.",
+      "Structured service options for Classic Haircut, Fade Haircut, Beard Trim, Premium Haircut, and Other / Custom Style.",
+      "Configured the booking journey around service selection, appointment date, and available time slots.",
+      "Organized the booking process to make submitting customer details simple and convenient.",
+      "Developed booking confirmation and thank-you page messaging.",
+    ],
+    tools: ["GoHighLevel", "Funnels", "Calendars", "Forms", "CRM", "Email"],
+    evidence: [
+      { title: "Booking Funnel", image: "/projects/freshcut-funnel.png" },
+      { title: "Calendar", image: "/projects/freshcut-calendar.png"},
+      { title: "Services", image: "/projects/freshcut-services.png"}
+    ],
+    link: "https://sites.leadconnectorhq.com/preview/xzSbzhpkDHzJZzfd5DIZ?notrack=true"
+  },
+  {
+    title: "SocialBoost Digital Agency",
+    category: "Lead Generation Funnel · CRM · Pipelines · Email Confirmation · Basic Automation",
+    description:
+      "A GoHighLevel practice project for a digital marketing agency offering a free social media audit to small businesses such as cafés, restaurants, salons, and retail shops.",
+    objective:
+      "Build a lead-generation journey that captures business inquiries for a free social media audit and guides prospects toward a consultation.",
+    implementation: [
+      "Structured a landing page around the Free Social Media Audit offer and its three actionable recommendations.",
+      "Mapped the lead journey from landing-page submission to CRM follow-up.",
+      "Planned a 30-minute consultation calendar using Google Meet.",
+      "Developed a pipeline concept to organize leads through the sales process.",
+      "Prepared email messaging for lead engagement and appointment scheduling.",
+      "Aligned the funnel and calendar experience with the agency's brand identity.",
+    ],
+    tools: ["GoHighLevel", "Funnels", "CRM Pipelines", "Calendars", "Forms", "Email", "Workflows"],
+    evidence: [
+      { title: "Lead Generation Funnel", image: "/projects/socialboost-funnel.png"},
+      { title: "Workflow Automation", image: "/projects/socialboost-automation.png"},
+      { title: "Calendar & Follow-up", image: "/projects/socialboost-calendar.png"},
+    ],
+    link: "https://socialboost-audit.vibepreview.app"
+  },
+  {
+    "title": "ABC Solar Solutions",
+    "category": "Lead Generation Funnel · CRM · Pipeline · Email Confirmation · Basic Automation",
+    "description": "A residential solar installation practice project offering a FREE Solar Savings Assessment to homeowners looking to reduce their monthly electricity bills by switching to solar energy.",
+    "objective": "Build a lead-generation journey that captures homeowner inquiries for a FREE Solar Savings Assessment and guides prospects toward scheduling their assessment via a Welcome Email link.",
+    "implementation": [
+      "Structured a single-page landing page around the FREE Solar Savings Assessment offer and its five homeowner benefit cards.",
+      "Mapped the lead journey from landing-page submission to a Thank You page that directs leads to check their email for the scheduling link.",
+      "Wired the lead capture form to the CRM via external form tracking (formId: solar-assessment-landing) without creating a booking, payment, or sales opportunity.",
+      "Prepared email messaging guidance for lead engagement and assessment scheduling through the Welcome Email."
+    ],
+    "tools": ["Funnels", "CRM Pipelines", "Forms", "Email", "Workflows", "Form Tracking"],
+    "evidence": [
+      { "title": "Lead Generation Funnel", "image": "/projects/abc-solar-funnel.png" },
+      { "title": "Thank You & Email Follow-up", "image": "/projects/abc-solar-thankyou.png" },
+      { "title": "Lead Capture Form", "image": "/projects/abc-solar-form.png" }
+    ],
+    link: "https://solarsavings-direc-7.vibepreview.app"
+  }
+];
+
+const academicProjects = [
   {
     title: "Smartbash",
     category: "AI / Web Application / Thesis Project",
     description:
       "An AI-powered disaster management system designed to help barangay residents report and monitor flood and fire incidents.",
-    technologies: [
-      "Python",
-      "Django",
-      "XLM-RoBERTa",
-      "CLIP",
-    ],
+    technologies: ["Python", "Django", "XLM-RoBERTa", "CLIP"],
     github: "https://github.com/rjnvrs/Smartbash-App",
-
     contributions: [
-      "Worked on the text classification component using XLM-RoBERTa.",
+      "Worked on text classification using XLM-RoBERTa.",
       "Prepared and processed the dataset for disaster report classification.",
       "Trained and evaluated the text classification model.",
       "Worked on CLIP-based image validation.",
-      "Integrated AI predictions into the application's reporting workflow.",
-    ],
-
-    proof: [
-      {
-        image: "/projects/smartbash-ai-training.png",
-        title: "AI Model Training",
-        description:
-          "Training and evaluation of the disaster report classification model.",
-      },
-      {
-        image: "/projects/smartbash-xlm-prediction.png",
-        title: "XLM-RoBERTa Prediction",
-        description:
-          "Text classification used to identify disaster report categories.",
-      },
-      {
-        image: "/projects/smartbash-clip.png",
-        title: "CLIP Image Validation",
-        description:
-          "CLIP-based image and text similarity used for image validation.",
-      },
-      {
-        image: "/projects/smartbash-ui.png",
-        title: "Smartbash Interface",
-        description:
-          "User-facing interface for submitting and managing disaster reports.",
-      },
+      "Integrated AI predictions into the reporting workflow.",
     ],
   },
-
   {
     title: "EchoMind",
     category: "AI / Web Application",
     description:
       "An AI-powered web application using a BERT-based NLP model to classify user input and provide the type and level of anxiety.",
-    technologies: [
-      "Python",
-      "BERT",
-      "NLP",
-      "React",
-      "Web Development",
-    ],
+    technologies: ["Python", "BERT", "NLP", "React"],
     github: "https://github.com/daanyool/EchoMind",
-
     contributions: [
-      "Trained the BERT-based NLP model.",
-      "Prepared and processed the training data.",
+      "Trained the BERT-based NLP model and prepared training data.",
       "Developed Python scripts for processing user input.",
-      "Passed the predicted class from the NLP model to the frontend.",
-      "Contributed to the web application's frontend development.",
-    ],
-
-    proof: [
-      {
-        image: "/projects/echomind-training.png",
-        title: "BERT Model Training",
-        description:
-          "Training and evaluation of the BERT-based NLP model.",
-      },
-      {
-        image: "/projects/echomind-python.png",
-        title: "Python Model Processing",
-        description:
-          "Python scripts used to process input and generate model predictions.",
-      },
-      {
-        image: "/projects/echomind-prediction.png",
-        title: "Prediction Result",
-        description:
-          "Example of the model's predicted classification.",
-      },
-      {
-        image: "/projects/echomind-ui.png",
-        title: "EchoMind Interface",
-        description:
-          "Frontend interface of the EchoMind web application (Landing Page).",
-      },
+      "Passed predicted classes from the NLP model to the frontend.",
+      "Contributed to frontend development.",
     ],
   },
-
   {
     title: "Resort Rental System",
     category: "Backend / Web Application",
     description:
       "A web-based resort booking system developed with ASP.NET MVC, C#, and SQL Server.",
-    technologies: [
-      "C#",
-      "ASP.NET MVC",
-      "SQL Server",
-    ],
+    technologies: ["C#", "ASP.NET MVC", "SQL Server"],
     github: "https://github.com/daanyool/Balay-Balay-Resort-Improved",
-
     contributions: [
       "Worked on backend functionality using ASP.NET MVC and C#.",
       "Worked with SQL Server for application data.",
       "Implemented and modified application functionality.",
       "Fixed issues identified during testing and QA.",
     ],
-
-    proof: [
-      {
-        image: "/projects/resort-ui.png",
-        title: "Resort Rental Interface",
-        description:
-          "User interface of the resort rental and booking system.",
-      },
-      {
-        image: "/projects/resort-booking.png",
-        title: "Booking Functionality",
-        description:
-          "Example of the resort booking functionality.",
-      },
-      {
-        image: "/projects/resort-backend.png",
-        title: "Backend Functionality",
-        description:
-          "Application functionality developed using ASP.NET MVC and C#.",
-      },
-    ],
   },
-
   {
     title: "Nutritional Information App",
     category: "Frontend / Web Application",
     description:
       "An application providing nutritional and food allergy information with user authentication and allergy management features.",
-    technologies: [
-      "React",
-      "JavaScript",
-      "HTML",
-      "CSS",
-    ],
+    technologies: ["React", "JavaScript", "HTML", "CSS"],
     github: "https://github.com/daanyool/HCI-Project-Final",
-
     contributions: [
-      "Developed the landing page.",
-      "Redesigned the sign-in and sign-up interfaces.",
-      "Implemented allergy management features.",
-      "Developed add, edit, and delete allergy functionality.",
+      "Developed the landing page and redesigned sign-in and sign-up interfaces.",
+      "Implemented allergy management features, including add, edit, and delete functionality.",
       "Created health-information carousel sections.",
-      "Focused on the user interface and frontend experience.",
-    ],
-
-    proof: [
-      {
-        image: "/projects/nutrition-landing.png",
-        title: "Landing Page",
-        description:
-          "Frontend landing page designed and developed for the application.",
-      },
-      {
-        image: "/projects/nutrition-auth.png",
-        title: "Authentication Interface",
-        description:
-          "Redesigned sign-in and sign-up interfaces.",
-      },
     ],
   },
 ];
 
-const skills = [
-  "Java",
-  "C#",
-  "Python",
-  "JavaScript",
-  "TypeScript",
-  "C",
-  "React",
-  "Next.js",
-  "ASP.NET Core",
-  "HTML",
-  "CSS",
-  "GitHub",
-  "NLP",
-  "Machine Learning",
-  "Figma"
+const services = [
+  {
+    number: "01",
+    title: "Funnel Building",
+    description: "Build structured landing pages and funnel journeys that present offers clearly and guide visitors toward an inquiry, lead submission, or booking.",
+  },
+  {
+    number: "02",
+    title: "CRM Setup & Management",
+    description: "Organize contacts, custom fields, tags, and pipeline stages so businesses can keep track of leads and opportunities.",
+  },
+  {
+    number: "03",
+    title: "Email Management",
+    description: "Create and organize email communications, follow-ups, and workflow-based messages for lead nurturing and customer updates.",
+  },
+  {
+    number: "04",
+    title: "Calendar & Appointment Booking",
+    description: "Set up service calendars, booking forms, appointment availability, and confirmation or reminder communications.",
+  },
 ];
+
+const tools = [
+  {
+    name: "GoHighLevel",
+    logo: "/tools/gohighlevel.png",
+    mark: "GHL",
+    className: "ghl-logo",
+  },
+  {
+    name: "Figma",
+    logo: "/tools/figma.png",
+    mark: "F",
+    className: "",
+  },
+  {
+    name: "Canva",
+    logo: "/tools/canva.png",
+    mark: "C",
+    className: "",
+  },
+  {
+    name: "Google Workspace",
+    logo: "/tools/google-workspace.png",
+    mark: "G",
+    className: "",
+  },
+  {
+    name: "Microsoft 365",
+    logo: "/tools/microsoft-365.png",
+    mark: "M",
+    className: "",
+  },
+];
+
+const email = "mark.daniel.fernandez.va@gmail.com";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openProject, setOpenProject] = useState<string | null>(null);
-
-  const toggleProject = (projectTitle: string) => {
-    setOpenProject(
-      openProject === projectTitle ? null : projectTitle
-    );
-  };
+  const [openGhl, setOpenGhl] = useState<string | null>(null);
+  const [openAcademic, setOpenAcademic] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#020617] via-[#0c2a5c] to-[#020617] text-white">
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/4 top-20 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
-        <div className="absolute right-1/4 top-96 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
-      </div>
-
-      {/* NAVBAR */}
-      <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#0a0a0a]/90 backdrop-blur-md">
+    <main className="min-h-screen bg-[#07111f] text-white">
+      <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#07111f]/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a
-            href="#home"
-            className="text-xl font-bold tracking-tight"
-          >
-            M<span className="text-cyan-400">.</span>
-          </a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden gap-8 md:flex">
-            <a href="#home" className="nav-link">
-              Home
-            </a>
-            <a href="#about" className="nav-link">
-              About
-            </a>
-            <a href="#skills" className="nav-link">
-              Skills
-            </a>
-            <a href="#projects" className="nav-link">
-              Projects
-            </a>
-            <a href="#experience" className="nav-link">
-              Experience
-            </a>
-            <a href="#contact" className="nav-link">
-              Contact
-            </a>
+          <a href="#home" className="text-xl font-bold tracking-tight">M<span className="text-cyan-400">.</span></a>
+          <div className="hidden items-center gap-7 md:flex">
+            {[
+              ["About", "#about"], ["Services", "#services"], ["Tools", "#tools"],
+              ["GHL Projects", "#ghl-projects"], ["Academic", "#academic"], ["Experience", "#experience"],
+            ].map(([label, href]) => <a key={href} href={href} className="text-sm text-gray-300 transition hover:text-cyan-400">{label}</a>)}
+            <a href={`mailto:${email}`} className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">Email Me</a>
           </div>
-
-          {/* Mobile Button */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-2xl md:hidden"
-            aria-label="Toggle menu"
-          >
-            ☰
-          </button>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="text-2xl md:hidden" aria-label="Toggle menu">☰</button>
         </div>
-
-        {/* Mobile Navigation */}
-        {menuOpen && (
-          <div className="border-t border-white/10 px-6 py-4 md:hidden">
-            <div className="flex flex-col gap-4">
-              {["home", "about", "skills", "projects", "experience", "contact"].map(
-                (item) => (
-                  <a
-                    key={item}
-                    href={`#${item}`}
-                    onClick={() => setMenuOpen(false)}
-                    className="capitalize text-gray-300 transition hover:text-cyan-400"
-                  >
-                    {item}
-                  </a>
-                )
-              )}
-            </div>
+        {menuOpen && <div className="border-t border-white/10 px-6 py-4 md:hidden">
+          <div className="flex flex-col gap-4">
+            {[["About", "#about"], ["Services", "#services"], ["Tools", "#tools"], ["GHL Projects", "#ghl-projects"], ["Academic", "#academic"], ["Experience", "#experience"], ["Contact", "#contact"]].map(([label, href]) =>
+              <a key={href} href={href} onClick={() => setMenuOpen(false)} className="text-gray-300 hover:text-cyan-400">{label}</a>)}
+            <a href={`mailto:${email}`} className="font-semibold text-cyan-400">Email Me ↗</a>
           </div>
-        )}
+        </div>}
       </nav>
 
-      {/* HERO */}
-      <section
-        id="home"
-        className="flex min-h-screen items-center px-6 pt-20"
-      >
-        <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+      <section id="home" className="scroll-mt-24 flex min-h-screen items-center px-6 pb-20 pt-28">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.2fr_.8fr]">
           <Reveal>
             <div>
-              <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
-                Computer Science Graduate
+              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">GoHighLevel Specialist · Virtual Assistant</p>
+              <h1 className="text-5xl font-bold leading-tight sm:text-6xl md:text-7xl">Building better <span className="text-cyan-400">business systems</span> with GoHighLevel.</h1>
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-gray-300">
+                Hello, I’m Mark. I help businesses organize their lead journeys through GoHighLevel funnels, CRM setup, email follow-ups, and appointment booking. With a Computer Science background, I bring a systems-focused approach to learning, building, and improving digital workflows.
               </p>
-
-              <h1 className="text-5xl font-bold leading-tight sm:text-6xl md:text-7xl">
-                Hi, I'm{" "}
-                <span className="text-cyan-400">
-                  Mark
-                </span>
-                .
-              </h1>
-
-              <h2 className="mt-4 text-2xl font-semibold text-gray-300 sm:text-3xl">
-                Aspiring Frontend Developer
-              </h2>
-
-              <p className="mt-6 max-w-xl text-lg leading-8 text-gray-400">
-                I build web applications and software solutions while
-                continuously learning new technologies. I am interested in
-                frontend development, web development, and AI.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Reveal>
-                  <a
-                    href="#projects"
-                    className="rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-black transition hover:bg-cyan-300"
-                  >
-                    View My Projects
-                  </a>
-                </Reveal>
-
-                <Reveal>
-                  <a
-                    href="#contact"
-                    className="rounded-lg border border-white/20 px-6 py-3 font-semibold transition hover:border-cyan-400 hover:text-cyan-400"
-                  >
-                    Contact Me
-                  </a>
-                </Reveal>
+              <div className="mt-9 flex flex-wrap gap-4">
+                <a href="#ghl-projects" className="rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300">Explore My GHL Projects</a>
+                <a href={`mailto:${email}`} className="rounded-lg border border-cyan-400/60 px-6 py-3 font-semibold text-cyan-300 transition hover:bg-cyan-400/10">Email Me</a>
               </div>
-
-              <Reveal>
-                <div className="mt-8 flex gap-5">
-                  <a
-                    href="https://github.com/daanyool"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 transition hover:text-white"
-                  >
-                    GitHub ↗
-                  </a>
-                </div>
-              </Reveal>
+              <p className="mt-6 text-sm text-gray-500">Based in the Philippines · Open to remote opportunities</p>
             </div>
           </Reveal>
+          <Reveal>
+            <div className="relative mx-auto flex w-full max-w-md flex-col items-center">
+              {/* Outer decorative circle */}
+              <div className="relative aspect-square w-full overflow-hidden rounded-full border border-cyan-500/50 bg-cyan-500/10">
+                {/* Inner circle */}
+                <div className="absolute inset-[10%] rounded-full border-2 border-cyan-500/50" />
 
-          {/* Hero visual */}
-          <div className="hidden justify-center md:flex">
-            <Reveal>
-              <div className="relative h-80 w-80">
-                <div className="absolute inset-0 rounded-3xl border border-cyan-400/30 rotate-6" />
+                {/* Head and shoulders portrait */}
+                <img
+                  src="/profile.png"
+                  alt="Profile picture"
+                  className="absolute inset-0 z-10 h-full w-full object-cover object-top"
+                />
+              </div>
 
-                <Reveal>
-                  <div className="absolute inset-0 overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur">
-                    <Image
-                      src="/profile.jpg"
-                      alt="Mark Daniel Fernandez"
-                      fill
-                      priority
-                      className="object-cover object-[center_10%]"
-                    />
+              {/* Name and role */}
+              <h2 className="relative z-20 mt-4 text-center text-2xl font-bold text-white">
+                Mark Daniel Fernandez
+              </h2>
+              <p className="mt-1 text-sm text-cyan-300">
+                GoHighLevel Specialist / VA
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
-                    <div className="absolute inset-0 bg-black/20" />
+      <section id="about" className="scroll-mt-24 border-y border-white/10 bg-white/[0.02] px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <SectionTitle number="01" title="A little about me" />
+          <div className="grid gap-10 md:grid-cols-2">
+            <Reveal><div className="space-y-5 text-lg leading-8 text-gray-300">
+              <p>I’m a GoHighLevel-focused aspiring Virtual Assistant with a growing interest in helping businesses create organized and effective digital processes.</p>
+              <p>My current hands-on practice includes building funnel experiences, mapping CRM pipelines, configuring booking journeys, and planning email follow-up workflows for business scenarios.</p>
+              <p>I’m also a Computer Science graduate with software development internship experience. That background helps me approach tasks logically, understand how systems connect, and work through technical problems carefully.</p>
+            </div></Reveal>
+            <Reveal><div className="rounded-2xl border border-white/10 bg-[#0b1a2b] p-8">
+              <p className="text-sm font-semibold uppercase tracking-widest text-cyan-400">My approach</p>
+              <h3 className="mt-3 text-2xl font-semibold">Practical systems. Clear processes. Thoughtful execution.</h3>
+              <p className="mt-4 leading-7 text-gray-400">I value organized workflows, clear communication, attention to detail, and continuous learning. My goal is to help make everyday business processes easier to manage.</p>
+              <a href={`mailto:${email}`} className="mt-7 inline-flex font-semibold text-cyan-300 hover:text-cyan-200">Let’s discuss your project ↗</a>
+            </div></Reveal>
+          </div>
+        </div>
+      </section>
 
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                      <p className="text-sm font-medium tracking-widest text-cyan-400">
-                        FRONTEND DEVELOPER
-                      </p>
+      <section id="services" className="scroll-mt-24 px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <SectionTitle number="02" title="Services I can offer" />
+          <p className="mb-10 max-w-2xl text-gray-400">Support for the key steps that help businesses attract leads, organize contacts, and manage customer appointments.</p>
+          <div className="grid gap-5 md:grid-cols-2">
+            {services.map((service) => <Reveal key={service.number}>
+              <article className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition hover:-translate-y-1 hover:border-cyan-400/40">
+                <p className="text-sm font-semibold text-cyan-400">{service.number}</p>
+                <h3 className="mt-4 text-2xl font-semibold">{service.title}</h3>
+                <p className="mt-4 leading-7 text-gray-400">{service.description}</p>
+              </article>
+            </Reveal>)}
+          </div>
+          <div className="mt-9"><EmailCTA text="Have a task or project in mind? Let’s talk." /></div>
+        </div>
+      </section>
+
+      
+      <section id="tools" className="scroll-mt-24 overflow-hidden border-y border-white/10 bg-[#091522] px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <div className="mx-auto mb-8 h-1 w-24 rounded-full bg-gradient-to-r from-cyan-400 to-teal-300" />
+            <p className="text-4xl font-bold tracking-tight sm:text-5xl">
+              Tools to <span className="text-cyan-400">fuel our collaboration</span>
+            </p>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-400">
+              I use the right tools to work efficiently, stay organized, and deliver the best results.
+            </p>
+          </div>
+
+          <div className="tool-marquee relative">
+            <div className="tool-marquee-track">
+              {[...tools, ...tools].map((tool, index) => (
+                <div
+                  className="tool-logo-item"
+                  key={`${tool.name}-${index}`}
+                  aria-label={tool.name}
+                >
+                  <div className={`tool-logo ${tool.className}`}>
+                    {tool.logo ? (
+                      <img
+                        src={tool.logo}
+                        alt={`${tool.name} logo`}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span className="ghl-mark">{tool.mark}</span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-8 text-center text-xs text-gray-600">
+            A selection of tools I use to plan, create, and manage digital workflows.
+          </p>
+        </div>
+
+        <style jsx>{`
+          .tool-marquee {
+            width: 100%;
+            overflow: hidden;
+            padding: 24px 0 16px;
+            -webkit-mask-image: linear-gradient(
+              to right,
+              transparent,
+              black 8%,
+              black 92%,
+              transparent
+            );
+            mask-image: linear-gradient(
+              to right,
+              transparent,
+              black 8%,
+              black 92%,
+              transparent
+            );
+          }
+
+          .tool-marquee-track {
+            display: flex;
+            width: max-content;
+            align-items: center;
+            gap: 88px;
+            animation: tools-scroll-right 28s linear infinite;
+          }
+
+          .tool-marquee:hover .tool-marquee-track {
+            animation-play-state: paused;
+          }
+
+          .tool-logo-item {
+            display: flex;
+            min-width: 170px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+          }
+
+          .tool-logo {
+            display: flex;
+            width: 140px;
+            height: 120px;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+          }
+
+          .tool-logo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+          }
+
+          .tool-logo-item:hover .tool-logo img {
+            transform: scale(1.12);
+          }
+
+          .tool-logo.ghl-logo {
+            background: transparent;
+            border: none;
+          }
+
+          .ghl-mark {
+            color: #22d3ee;
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -2px;
+          }
+
+          .tool-logo-name {
+            color: #f8fafc;
+            font-size: 17px;
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+          }
+
+          @keyframes tools-scroll-right {
+            from {
+              transform: translateX(-50%);
+            }
+            to {
+              transform: translateX(0);
+            }
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .tool-marquee-track {
+              animation: none;
+            }
+          }
+
+          @media (max-width: 640px) {
+            .tool-marquee-track {
+              gap: 48px;
+              animation-duration: 22s;
+            }
+
+            .tool-logo-item {
+              min-width: 120px;
+              gap: 14px;
+            }
+
+            .tool-logo {
+              width: 100px;
+              height: 90px;
+            }
+
+            .ghl-mark {
+              font-size: 30px;
+            }
+
+            .tool-logo-name {
+              font-size: 14px;
+            }
+          }
+        `}</style>
+      </section>
+
+
+      <section id="ghl-projects" className="scroll-mt-24 px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <SectionTitle number="04" title="GoHighLevel projects" />
+          <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <p className="max-w-2xl leading-7 text-gray-400">A closer look at business-focused practice builds, from the customer-facing funnel to the systems behind the experience.</p>
+            <span className="w-fit rounded-full border border-cyan-400/30 px-4 py-2 text-xs font-medium text-cyan-300">Hands-on practice projects</span>
+          </div>
+          <div className="grid gap-7">
+            {ghlProjects.map((project, index) => {
+              const isOpen = openGhl === project.title;
+              return <Reveal key={project.title} delay={index * 0.08}>
+                <article className={`overflow-hidden rounded-2xl border bg-white/[0.03] transition ${isOpen ? "border-cyan-400/40" : "border-white/10 hover:border-cyan-400/30"}`}>
+                  <div className="grid md:grid-cols-[.85fr_1.15fr]">
+                    <div className="flex min-h-64 flex-col justify-between bg-gradient-to-br from-cyan-400/10 via-blue-500/5 to-transparent p-7 md:p-9">
+                      <div><p className="text-sm text-cyan-300">0{index + 1} / GOHIGHLEVEL</p><h3 className="mt-5 text-3xl font-bold">{project.title}</h3><p className="mt-3 text-sm leading-6 text-gray-400">{project.category}</p></div>
+                      <button onClick={() => setOpenGhl(isOpen ? null : project.title)} className="mt-8 w-fit font-semibold text-cyan-300 hover:text-cyan-200">{isOpen ? "Hide project details ↑" : "Explore project details →"}</button>
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-block text-sm text-gray-400 hover:text-white">Go To Funnel ↗</a>
+                    </div>
+                    <div className="p-7 md:p-9">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400">Project overview</p>
+                      <p className="mt-3 leading-7 text-gray-300">{project.description}</p>
+                      <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-cyan-400">Objective</p>
+                      <p className="mt-3 leading-7 text-gray-400">{project.objective}</p>
+                      <div className="mt-6 flex flex-wrap gap-2">{project.tools.map((tool) => <span key={tool} className="rounded-full bg-white/5 px-3 py-1 text-xs text-gray-400">{tool}</span>)}</div>
                     </div>
                   </div>
-                </Reveal>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ABOUT */}
-      <section id="about" className="scroll-mt-20 px-6 py-24">
-        <div className="mx-auto max-w-6xl">
-          <Reveal>
-            <SectionTitle
-              number="01"
-              title="About Me"
-            />
-          </Reveal>
-
-          <div className="grid gap-10 md:grid-cols-2">
-            <Reveal>
-              <div>
-                <p className="text-lg leading-8 text-gray-400">
-                  I am a Computer Science graduate with hands-on experience
-                  in frontend development through academic projects and a
-                  software development internship.
-                </p>
-
-                <p className="mt-5 text-lg leading-8 text-gray-400">
-                  My experience includes building web applications,
-                  developing frontend features, 
-                  and experimenting with AI and natural
-                  language processing.
-                </p>
-
-                <p className="mt-5 text-lg leading-8 text-gray-400">
-                  I enjoy solving problems through technology and am
-                  continuously improving my programming and frontend
-                  development skills.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-                <h3 className="text-xl font-semibold">
-                  What I am looking for
-                </h3>
-
-                <p className="mt-4 leading-7 text-gray-400">
-                  I am currently looking for opportunities where I can
-                  contribute to real-world frontend projects, learn from
-                  experienced developers, and continue growing as a
-                  frontend developer.
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Tag text="Software Development" />
-                  <Tag text="Web Development" />
-                  <Tag text="AI / ML" />
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* SKILLS */}
-      <section
-        id="skills"
-        className="scroll-mt-20 border-y border-white/10 bg-white/[0.02] px-6 py-24"
-      >
-        <div className="mx-auto max-w-6xl">
-          <Reveal>
-            <SectionTitle
-              number="02"
-              title="Skills"
-            />
-          </Reveal>
-
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {skills.map((skill) => (
-              <Reveal key={skill}>
-                <div
-                  key={skill}
-                  className="rounded-xl border border-white/10 bg-white/5 px-4 py-5 text-center text-gray-300 transition hover:-translate-y-1 hover:border-cyan-400/50 hover:text-cyan-400"
-                >
-                  {skill}
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PROJECTS */}
-      <section
-        id="projects"
-        className="scroll-mt-20 px-6 py-24"
-      >
-        <div className="mx-auto max-w-6xl">
-          <Reveal>
-            <SectionTitle
-              number="03"
-              title="Projects"
-            />
-          </Reveal>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {projects.map((project, index) => {
-              const isOpen = openProject === project.title;
-
-              return (
-                <Reveal
-                  key={project.title}
-                  delay={index * 0.1}
-                >
-                  <article
-                    className={`overflow-hidden rounded-2xl border bg-white/[0.03] transition duration-300 ${
-                      isOpen
-                        ? "border-cyan-400/40"
-                        : "border-white/10 hover:-translate-y-1 hover:border-cyan-400/40"
-                    }`}
-                  >
-                    {/* PROJECT SUMMARY */}
-                    <div className="p-7">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-cyan-400">
-                          0{index + 1}
-                        </span>
-
-                        <span className="text-sm text-gray-500">
-                          {project.category}
-                        </span>
-                      </div>
-
-                      <h3 className="mt-5 text-2xl font-semibold">
-                        {project.title}
-                      </h3>
-
-                      <p className="mt-4 leading-7 text-gray-400">
-                        {project.description}
-                      </p>
-
-                      {/* TECHNOLOGIES */}
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {project.technologies.map((technology) => (
-                          <span
-                            key={technology}
-                            className="rounded-full bg-white/5 px-3 py-1 text-xs text-gray-400"
-                          >
-                            {technology}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* BUTTONS */}
-                      <div className="mt-7 flex flex-wrap gap-5">
-                        <button
-                          onClick={() =>
-                            toggleProject(project.title)
-                          }
-                          className="text-sm font-medium text-cyan-400 transition hover:text-cyan-300"
-                        >
-                          {isOpen
-                            ? "Hide Details ↑"
-                            : "View Details →"}
-                        </button>
-
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-medium text-gray-400 transition hover:text-white"
-                        >
-                          GitHub ↗
-                        </a>
-                      </div>
+                  {isOpen && <div className="border-t border-white/10 bg-black/20 p-7 md:p-9">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400">What I worked on</p>
+                    <ul className="mt-5 grid gap-3 md:grid-cols-2">{project.implementation.map((item) => <li key={item} className="flex gap-3 text-sm leading-6 text-gray-400"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />{item}</li>)}</ul>
+                    <div className="mt-9">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400">Project screenshots</p>
+                      <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{project.evidence.map((item) => <div key={item.title} className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
+                        <div className="relative aspect-video bg-slate-800"><Image src={item.image} alt={item.title} fill className="object-cover" /></div>
+                        <div className="p-4"><h4 className="font-medium">{item.title}</h4></div>
+                      </div>)}</div>
                     </div>
+                  </div>}
+                </article>
+              </Reveal>;
+            })}
+          </div>
+          <div className="mt-8"><EmailCTA text="Looking for help with a GoHighLevel setup?" /></div>
+        </div>
+      </section>
 
-                    {/* PROJECT DETAILS */}
-                    {isOpen && (
-                      <div className="border-t border-white/10 bg-black/20 p-7">
-
-                        {/* MY CONTRIBUTION */}
-                        <div>
-                          <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">
-                            My Contribution
-                          </p>
-
-                          <ul className="mt-5 space-y-3 text-sm leading-6 text-gray-400">
-                            {project.contributions.map(
-                              (contribution) => (
-                                <li
-                                  key={contribution}
-                                  className="flex gap-3"
-                                >
-                                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
-
-                                  <span>
-                                    {contribution}
-                                  </span>
-                                </li>
-                              )
-                            )}
-                          </ul>
-                        </div>
-
-                        {/* PROOF */}
-                        <div className="mt-10">
-                          <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">
-                            Proof of Contribution
-                          </p>
-
-                          <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                            {project.proof.map((item) => (
-                              <div
-                                key={item.image}
-                                className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]"
-                              >
-                                <div className="relative aspect-video bg-white/5">
-                                  <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    className="object-cover transition duration-300 hover:scale-105"
-                                  />
-                                </div>
-
-                                <div className="p-4">
-                                  <h5 className="font-medium">
-                                    {item.title}
-                                  </h5>
-
-                                  <p className="mt-2 text-sm leading-6 text-gray-500">
-                                    {item.description}
-                                  </p>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* GITHUB CODE PROOF */}
-                        <div className="mt-10 rounded-xl border border-white/10 bg-white/[0.03] p-5">
-                          <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400">
-                            Code Proof
-                          </p>
-
-                          <h4 className="mt-2 text-xl font-semibold">
-                            GitHub Repository
-                          </h4>
-
-                          <p className="mt-3 text-sm leading-6 text-gray-500">
-                            View the project's source code and
-                            implementation.
-                          </p>
-
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-5 inline-block rounded-lg bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-cyan-300"
-                          >
-                            View GitHub Code ↗
-                          </a>
-                        </div>
-                      </div>
-                    )}
-                  </article>
-                </Reveal>
-              );
+      <section id="academic" className="scroll-mt-24 border-y border-white/10 bg-white/[0.02] px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <SectionTitle number="05" title="Academic projects" />
+          <p className="mb-10 max-w-2xl text-gray-400">Selected university projects that reflect my foundation in software development, web applications, and AI. My primary professional focus is GoHighLevel.</p>
+          <div className="grid gap-5 md:grid-cols-2">
+            {academicProjects.map((project, index) => {
+              const isOpen = openAcademic === project.title;
+              return <Reveal key={project.title} delay={index * 0.05}>
+                <article className="h-full rounded-2xl border border-white/10 bg-[#0b1a2b] p-7">
+                  <p className="text-xs text-cyan-400">ACADEMIC PROJECT · 0{index + 1}</p>
+                  <h3 className="mt-4 text-2xl font-semibold">{project.title}</h3>
+                  <p className="mt-2 text-xs text-gray-500">{project.category}</p>
+                  <p className="mt-4 leading-7 text-gray-400">{project.description}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">{project.technologies.map((tech) => <span key={tech} className="rounded-full bg-white/5 px-3 py-1 text-xs text-gray-500">{tech}</span>)}</div>
+                  <button onClick={() => setOpenAcademic(isOpen ? null : project.title)} className="mt-6 text-sm mr-6 font-semibold text-cyan-300">{isOpen ? "Hide contribution ↑" : "View my contribution →"}</button>
+                  {isOpen && <ul className="mt-5 space-y-3 border-t border-white/10 pt-5 text-sm leading-6 text-gray-400">{project.contributions.map((item) => <li key={item}>• {item}</li>)}</ul>}
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block text-sm text-gray-400 hover:text-white">GitHub repository ↗</a>
+                </article>
+              </Reveal>;
             })}
           </div>
         </div>
       </section>
 
-      {/* EXPERIENCE */}
-      <section
-        id="experience"
-        className="scroll-mt-20 border-y border-white/10 bg-white/[0.02] px-6 py-24"
-      >
+      <section id="experience" className="scroll-mt-24 px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <Reveal>
-            <SectionTitle
-              number="04"
-              title="Experience"
-            />
-          </Reveal>
-
-          <Reveal>
-            <div className="relative border-l border-white/10 pl-8">
-              <div className="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-cyan-400" />
-
-              <p className="text-sm text-cyan-400">
-                September 2025 – November 2025
-              </p>
-
-              <h3 className="mt-2 text-2xl font-semibold">
-                Software Developer Intern
-              </h3>
-
-              <p className="mt-1 text-gray-500">
-                Right Apps Incorporated
-              </p>
-
-              <ul className="mt-6 space-y-3 text-gray-400">
-                <li>
-                  • Contributed to frontend development for a POS
-                  management system.
-                </li>
-
-                <li>
-                  • Developed features using Next.js, TypeScript,
-                  JavaScript, and CSS.
-                </li>
-
-                <li>
-                  • Migrated and implemented components from JavaScript
-                  to TypeScript.
-                </li>
-
-                <li>
-                  • Implemented a Stores page based on a Figma design.
-                </li>
-
-                <li>
-                  • Fixed bugs based on QA feedback and collaborated
-                  with developers and project managers.
-                </li>
-
-                <li>
-                  • Used Git and GitHub as part of the development
-                  workflow.
-                </li>
+          <SectionTitle number="06" title="Professional Experience & Education" />
+          <div className="grid gap-6 md:grid-cols-2">
+            <Reveal><div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+              <p className="text-sm text-cyan-300">September 2025 – November 2025</p>
+              <h3 className="mt-3 text-2xl font-semibold">Software Developer Intern</h3>
+              <p className="mt-1 text-gray-500">Right Apps Incorporated</p>
+              <ul className="mt-6 space-y-3 text-sm leading-6 text-gray-400">
+                <li>• Contributed to frontend development for a POS management system.</li>
+                <li>• Developed features using Next.js, TypeScript, JavaScript, and CSS.</li>
+                <li>• Migrated and implemented components from JavaScript to TypeScript.</li>
+                <li>• Implemented a Stores page based on a Figma design.</li>
+                <li>• Fixed QA issues and collaborated with developers and project managers.</li>
               </ul>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* EDUCATION */}
-      <section className="px-6 py-24">
-        <div className="mx-auto max-w-6xl">
-          <Reveal>
-            <SectionTitle
-              number="05"
-              title="Education"
-            />
-          </Reveal>
-          
-          <Reveal>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-sm text-cyan-400">
-                Bachelor of Science in Computer Science
-              </p>
-
-              <h3 className="mt-2 text-2xl font-semibold">
-                University of Cebu
-              </h3>
-
-              <p className="mt-2 text-gray-400">
-                Computer Science graduate with experience in software
-                development, web development, and artificial intelligence
-                projects.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section
-        id="contact"
-        className="scroll-mt-20 border-t border-white/10 px-6 py-24"
-      >
-        <div className="mx-auto max-w-4xl text-center">
-          <Reveal>
-            <SectionTitle
-              number="06"
-              title="Let's Connect"
-              centered
-            />
-          </Reveal>
-          
-          <Reveal>
-            <p className="mx-auto max-w-xl text-lg leading-8 text-gray-400">
-              I'm currently open to frontend development opportunities
-              and would be happy to connect.
-            </p>
-          </Reveal>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Reveal>
-              <a
-                href="mailto:markdanielfernandez11@gmail.com"
-                className="rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-black transition hover:bg-cyan-300"
-              >
-                Email Me
-              </a>
-            </Reveal>
-
-            <Reveal>
-              <a
-                href="https://github.com/daanyool"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg border border-white/20 px-6 py-3 font-semibold transition hover:border-cyan-400 hover:text-cyan-400"
-              >
-                GitHub
-              </a>
-            </Reveal>
+            </div></Reveal>
+            <Reveal><div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+              <p className="text-sm text-cyan-300">2022 – 2026</p>
+              <h3 className="mt-3 text-2xl font-semibold">Bachelor of Science in Computer Science</h3>
+              <p className="mt-1 text-gray-500">University of Cebu</p>
+              <p className="mt-6 leading-7 text-gray-400">A technical academic foundation in software development, web applications, and artificial intelligence, supporting a structured and analytical approach to digital systems.</p>
+            </div></Reveal>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-white/10 px-6 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-gray-500 md:flex-row">
-          <p>© {new Date().getFullYear()} Mark Daniel Fernandez</p>
+      <section id="contact" className="scroll-mt-24 border-t border-white/10 bg-gradient-to-b from-cyan-400/[0.06] to-transparent px-6 py-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">Have a project in mind?</p>
+          <h2 className="mt-4 text-4xl font-bold sm:text-5xl">Let’s build a better workflow together.</h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-400">If you need support with GoHighLevel funnels, CRM organization, email management, or appointment booking, I’d be happy to hear about your project.</p>
+          <a href={`mailto:${email}`} className="mt-9 inline-flex rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-slate-950 transition hover:bg-cyan-300">Email Me ↗</a>
+          <p className="mt-5 text-sm text-gray-500">{email}</p>
+        </div>
+      </section>
 
-          <p>
-            Built with Next.js, TypeScript & Tailwind CSS
-          </p>
+      <footer className="border-t border-white/10 px-6 py-8">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-sm text-gray-500 md:flex-row">
+          <p>© {new Date().getFullYear()} Mark Daniel Fernandez</p>
+          <p>GoHighLevel Specialist / Virtual Assistant Portfolio</p>
+          <a href={`mailto:${email}`} className="text-cyan-300 hover:text-cyan-200">Email Me ↗</a>
         </div>
       </footer>
     </main>
   );
 }
 
-/* =========================
-   COMPONENTS
-========================= */
-
-function SectionTitle({
-  number,
-  title,
-  centered = false,
-}: {
-  number: string;
-  title: string;
-  centered?: boolean;
-}) {
-  return (
-    <div className={`mb-12 ${centered ? "text-center" : ""}`}>
-      <p className="text-sm font-medium tracking-widest text-cyan-400">
-        {number}
-      </p>
-
-      <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
-        {title}
-      </h2>
-    </div>
-  );
+function SectionTitle({ number, title }: { number: string; title: string }) {
+  return <div className="mb-10"><p className="text-sm font-semibold tracking-widest text-cyan-400">{number}</p><h2 className="mt-2 text-4xl font-bold sm:text-5xl">{title}</h2></div>;
 }
 
-function Tag({ text }: { text: string }) {
-  return (
-    <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300">
-      {text}
-    </span>
-  );
+function EmailCTA({ text }: { text: string }) {
+  return <div className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-cyan-400/20 bg-cyan-400/[0.05] p-6 sm:flex-row sm:items-center">
+    <p className="font-medium text-gray-200">{text}</p>
+    <a href={`mailto:${email}`} className="shrink-0 rounded-lg border border-cyan-400/50 px-5 py-2.5 text-sm font-semibold text-cyan-300 transition hover:bg-cyan-400/10">Email Me ↗</a>
+  </div>;
 }
