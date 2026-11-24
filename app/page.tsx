@@ -133,23 +133,23 @@ const academicProjects = [
 const services = [
   {
     number: "01",
-    title: "Funnel Building",
-    description: "Build structured landing pages and funnel journeys that present offers clearly and guide visitors toward an inquiry, lead submission, or booking.",
+    title: "Web Development & Technical Support",
+    description: "Contribute to frontend development, implement interface components, troubleshoot issues, and work with web technologies to improve digital applications.",
   },
   {
     number: "02",
-    title: "CRM Setup & Management",
-    description: "Organize contacts, custom fields, tags, and pipeline stages so businesses can keep track of leads and opportunities.",
+    title: "Digital Systems & CRM",
+    description: "Organize business information, work with CRM systems, build funnels, configure booking systems, and explore ways to improve digital processes.",
   },
   {
     number: "03",
-    title: "Email Management",
-    description: "Create and organize email communications, follow-ups, and workflow-based messages for lead nurturing and customer updates.",
+    title: "Digital & Administrative Support",
+    description: "Assist with organizing information, managing digital tools, handling structured tasks, documenting processes, and supporting day-to-day operations.",
   },
   {
     number: "04",
-    title: "Calendar & Appointment Booking",
-    description: "Set up service calendars, booking forms, appointment availability, and confirmation or reminder communications.",
+    title: "Testing & Problem-Solving",
+    description: "Conduct testing, identify issues, and implement solutions to ensure application quality and performance.",
   },
 ];
 
@@ -161,15 +161,33 @@ const tools = [
     className: "ghl-logo",
   },
   {
+    name: "Canva",
+    logo: "/tools/canva.png",
+    mark: "C",
+    className: "",
+  },
+  {
     name: "Figma",
     logo: "/tools/figma.png",
     mark: "F",
     className: "",
   },
   {
-    name: "Canva",
-    logo: "/tools/canva.png",
+    name: "ChatGPT",
+    logo: "/tools/chatgpt.png",
     mark: "C",
+    className: "",
+  },
+  {
+    name: "Claude AI",
+    logo: "/tools/claude.png",
+    mark: "CA",
+    className: "",
+  },
+  {
+    name: "Notion",
+    logo: "/tools/notion.png",
+    mark: "N",
     className: "",
   },
   {
@@ -182,6 +200,60 @@ const tools = [
     name: "Microsoft 365",
     logo: "/tools/microsoft-365.png",
     mark: "M",
+    className: "",
+  },
+  {
+    name: "HTML CSS JS",
+    logo: "/tools/htmlcssjs.png",
+    mark: "CSS",
+    className: "",
+  },
+  {
+    name: "Java",
+    logo: "/tools/java.png",
+    mark: "J",
+    className: "",
+  },
+  {
+    name: "C#",
+    logo: "/tools/csharp.png",
+    mark: "C#",
+    className: "",
+  },
+  {
+    name: "React",
+    logo: "/tools/react.png",
+    mark: "R",
+    className: "",
+  },
+  {
+    name: "NextJs",
+    logo: "/tools/nextjs.png",
+    mark: "N",
+    className: "",
+  },
+  {
+    name: "VSCode",
+    logo: "/tools/vscode.png",
+    mark: "VSC",
+    className: "",
+  },
+  {
+    name: "Visual Studio",
+    logo: "/tools/vs.png",
+    mark: "VS",
+    className: "",
+  },
+  {
+    name: "Github",
+    logo: "/tools/github.png",
+    mark: "GH",
+    className: "",
+  },
+  {
+    name: "Hugging Face",
+    logo: "/tools/huggingface.png",
+    mark: "HF",
     className: "",
   },
 ];
@@ -200,8 +272,8 @@ export default function Home() {
           <a href="#home" className="text-xl font-bold tracking-tight">M<span className="text-cyan-400">.</span></a>
           <div className="hidden items-center gap-7 md:flex">
             {[
-              ["About", "#about"], ["Services", "#services"], ["Tools", "#tools"],
-              ["GHL Projects", "#ghl-projects"], ["Academic", "#academic"], ["Experience", "#experience"],
+              ["Services", "#services"], ["Tools", "#tools"],
+              ["Projects", "#projects"], ["Academic", "#academic"], ["Experience", "#experience"],
             ].map(([label, href]) => <a key={href} href={href} className="text-sm text-gray-300 transition hover:text-cyan-400">{label}</a>)}
             <a href={`mailto:${email}`} className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">Email Me</a>
           </div>
@@ -209,7 +281,7 @@ export default function Home() {
         </div>
         {menuOpen && <div className="border-t border-white/10 px-6 py-4 md:hidden">
           <div className="flex flex-col gap-4">
-            {[["About", "#about"], ["Services", "#services"], ["Tools", "#tools"], ["GHL Projects", "#ghl-projects"], ["Academic", "#academic"], ["Experience", "#experience"], ["Contact", "#contact"]].map(([label, href]) =>
+            {[["Services", "#services"], ["Tools", "#tools"], ["Projects", "#projects"], ["Academic", "#academic"], ["Experience", "#experience"], ["Contact", "#contact"]].map(([label, href]) =>
               <a key={href} href={href} onClick={() => setMenuOpen(false)} className="text-gray-300 hover:text-cyan-400">{label}</a>)}
             <a href={`mailto:${email}`} className="font-semibold text-cyan-400">Email Me ↗</a>
           </div>
@@ -220,26 +292,28 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.2fr_.8fr]">
           <Reveal>
             <div>
-              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">GoHighLevel Specialist · Virtual Assistant</p>
-              <h1 className="text-5xl font-bold leading-tight sm:text-6xl md:text-7xl">Building better <span className="text-cyan-400">business systems</span> with GoHighLevel.</h1>
+              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">Computer Science Graduate | Technical & Digital Systems</p>
+              <h1 className="text-5xl font-bold leading-tight sm:text-6xl md:text-7xl">Building practical <span className="text-cyan-400">digital solutions</span> through technology and problem-solving.</h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-gray-300">
-                Hello, I’m Mark. I help businesses organize their lead journeys through GoHighLevel funnels, CRM setup, email follow-ups, and appointment booking. With a Computer Science background, I bring a systems-focused approach to learning, building, and improving digital workflows.
+                A Computer Science graduate with software development internship 
+                experience, hands-on practice building business systems with GoHighLevel, 
+                and an understanding of digital and administrative support. With exposure 
+                to web development, AI-related projects, testing, and business tools, 
+                I approach tasks with logical thinking, attention to detail, and a 
+                willingness to learn and adapt.
               </p>
               <div className="mt-9 flex flex-wrap gap-4">
-                <a href="#ghl-projects" className="rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300">Explore My GHL Projects</a>
+                <a href="#other-projects" className="rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300">Explore My Projects</a>
                 <a href={`mailto:${email}`} className="rounded-lg border border-cyan-400/60 px-6 py-3 font-semibold text-cyan-300 transition hover:bg-cyan-400/10">Email Me</a>
               </div>
-              <p className="mt-6 text-sm text-gray-500">Based in the Philippines · Open to remote opportunities</p>
+              <p className="mt-6 text-sm text-gray-500">Philippines · Open to remote opportunities</p>
             </div>
           </Reveal>
           <Reveal>
             <div className="relative mx-auto flex w-full max-w-md flex-col items-center">
-              {/* Outer decorative circle */}
               <div className="relative aspect-square w-full overflow-hidden rounded-full border border-cyan-500/50 bg-cyan-500/10">
-                {/* Inner circle */}
                 <div className="absolute inset-[10%] rounded-full border-2 border-cyan-500/50" />
 
-                {/* Head and shoulders portrait */}
                 <img
                   src="/profile.png"
                   alt="Profile picture"
@@ -251,36 +325,14 @@ export default function Home() {
               <h2 className="relative z-20 mt-4 text-center text-2xl font-bold text-white">
                 Mark Daniel Fernandez
               </h2>
-              <p className="mt-1 text-sm text-cyan-300">
-                GoHighLevel Specialist / VA
-              </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section id="about" className="scroll-mt-24 border-y border-white/10 bg-white/[0.02] px-6 py-24">
-        <div className="mx-auto max-w-6xl">
-          <SectionTitle number="01" title="A little about me" />
-          <div className="grid gap-10 md:grid-cols-2">
-            <Reveal><div className="space-y-5 text-lg leading-8 text-gray-300">
-              <p>I’m a GoHighLevel-focused aspiring Virtual Assistant with a growing interest in helping businesses create organized and effective digital processes.</p>
-              <p>My current hands-on practice includes building funnel experiences, mapping CRM pipelines, configuring booking journeys, and planning email follow-up workflows for business scenarios.</p>
-              <p>I’m also a Computer Science graduate with software development internship experience. That background helps me approach tasks logically, understand how systems connect, and work through technical problems carefully.</p>
-            </div></Reveal>
-            <Reveal><div className="rounded-2xl border border-white/10 bg-[#0b1a2b] p-8">
-              <p className="text-sm font-semibold uppercase tracking-widest text-cyan-400">My approach</p>
-              <h3 className="mt-3 text-2xl font-semibold">Practical systems. Clear processes. Thoughtful execution.</h3>
-              <p className="mt-4 leading-7 text-gray-400">I value organized workflows, clear communication, attention to detail, and continuous learning. My goal is to help make everyday business processes easier to manage.</p>
-              <a href={`mailto:${email}`} className="mt-7 inline-flex font-semibold text-cyan-300 hover:text-cyan-200">Let’s discuss your project ↗</a>
-            </div></Reveal>
-          </div>
-        </div>
-      </section>
-
       <section id="services" className="scroll-mt-24 px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <SectionTitle number="02" title="Services I can offer" />
+          <SectionTitle number="01" title="What I Can Contribute" />
           <p className="mb-10 max-w-2xl text-gray-400">Support for the key steps that help businesses attract leads, organize contacts, and manage customer appointments.</p>
           <div className="grid gap-5 md:grid-cols-2">
             {services.map((service) => <Reveal key={service.number}>
@@ -301,10 +353,11 @@ export default function Home() {
           <div className="mb-16 text-center">
             <div className="mx-auto mb-8 h-1 w-24 rounded-full bg-gradient-to-r from-cyan-400 to-teal-300" />
             <p className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Tools to <span className="text-cyan-400">fuel our collaboration</span>
+              Tools & Technologies
             </p>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-400">
-              I use the right tools to work efficiently, stay organized, and deliver the best results.
+            <p className="mx-auto mt-6 max-w-2xl text-s leading-8 text-gray-400">
+              Tools I've used, explored, or worked with across software development, 
+              AI-related projects, digital systems, and productivity tasks. 
             </p>
           </div>
 
@@ -331,10 +384,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-
-          <p className="mt-8 text-center text-xs text-gray-600">
-            A selection of tools I use to plan, create, and manage digital workflows.
-          </p>
         </div>
 
         <style jsx>{`
@@ -464,10 +513,35 @@ export default function Home() {
         `}</style>
       </section>
 
-
-      <section id="ghl-projects" className="scroll-mt-24 px-6 py-24">
+      <section id="projects" className="scroll-mt-24 border-y border-white/10 bg-white/[0.02] px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <SectionTitle number="04" title="GoHighLevel projects" />
+          <SectionTitle number="02" title="Software & Technical Projects" />
+          <p className="mb-10 max-w-2xl text-gray-400">A collection of software and AI-related projects 
+            where I contributed to development, model training, frontend implementation, 
+            system integration, and testing.</p>
+          <div className="grid gap-5 md:grid-cols-2">
+            {academicProjects.map((project, index) => {
+              const isOpen = openAcademic === project.title;
+              return <Reveal key={project.title} delay={index * 0.05}>
+                <article className="h-full rounded-2xl border border-white/10 bg-[#0b1a2b] p-7">
+                  <p className="text-xs text-cyan-400">ACADEMIC PROJECT · 0{index + 1}</p>
+                  <h3 className="mt-4 text-2xl font-semibold">{project.title}</h3>
+                  <p className="mt-2 text-xs text-gray-500">{project.category}</p>
+                  <p className="mt-4 leading-7 text-gray-400">{project.description}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">{project.technologies.map((tech) => <span key={tech} className="rounded-full bg-white/5 px-3 py-1 text-xs text-gray-500">{tech}</span>)}</div>
+                  <button onClick={() => setOpenAcademic(isOpen ? null : project.title)} className="mt-6 text-sm mr-6 font-semibold text-cyan-300">{isOpen ? "Hide contribution ↑" : "View my contribution →"}</button>
+                  {isOpen && <ul className="mt-5 space-y-3 border-t border-white/10 pt-5 text-sm leading-6 text-gray-400">{project.contributions.map((item) => <li key={item}>• {item}</li>)}</ul>}
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block text-sm text-gray-400 hover:text-white">GitHub repository ↗</a>
+                </article>
+              </Reveal>;
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="scroll-mt-24 px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <SectionTitle number="03" title="Business Systems Projects" />
           <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <p className="max-w-2xl leading-7 text-gray-400">A closer look at business-focused practice builds, from the customer-facing funnel to the systems behind the experience.</p>
             <span className="w-fit rounded-full border border-cyan-400/30 px-4 py-2 text-xs font-medium text-cyan-300">Hands-on practice projects</span>
@@ -510,33 +584,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="academic" className="scroll-mt-24 border-y border-white/10 bg-white/[0.02] px-6 py-24">
-        <div className="mx-auto max-w-6xl">
-          <SectionTitle number="05" title="Academic projects" />
-          <p className="mb-10 max-w-2xl text-gray-400">Selected university projects that reflect my foundation in software development, web applications, and AI. My primary professional focus is GoHighLevel.</p>
-          <div className="grid gap-5 md:grid-cols-2">
-            {academicProjects.map((project, index) => {
-              const isOpen = openAcademic === project.title;
-              return <Reveal key={project.title} delay={index * 0.05}>
-                <article className="h-full rounded-2xl border border-white/10 bg-[#0b1a2b] p-7">
-                  <p className="text-xs text-cyan-400">ACADEMIC PROJECT · 0{index + 1}</p>
-                  <h3 className="mt-4 text-2xl font-semibold">{project.title}</h3>
-                  <p className="mt-2 text-xs text-gray-500">{project.category}</p>
-                  <p className="mt-4 leading-7 text-gray-400">{project.description}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">{project.technologies.map((tech) => <span key={tech} className="rounded-full bg-white/5 px-3 py-1 text-xs text-gray-500">{tech}</span>)}</div>
-                  <button onClick={() => setOpenAcademic(isOpen ? null : project.title)} className="mt-6 text-sm mr-6 font-semibold text-cyan-300">{isOpen ? "Hide contribution ↑" : "View my contribution →"}</button>
-                  {isOpen && <ul className="mt-5 space-y-3 border-t border-white/10 pt-5 text-sm leading-6 text-gray-400">{project.contributions.map((item) => <li key={item}>• {item}</li>)}</ul>}
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block text-sm text-gray-400 hover:text-white">GitHub repository ↗</a>
-                </article>
-              </Reveal>;
-            })}
-          </div>
-        </div>
-      </section>
-
       <section id="experience" className="scroll-mt-24 px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <SectionTitle number="06" title="Professional Experience & Education" />
+          <SectionTitle number="04" title="Professional Experience & Education" />
           <div className="grid gap-6 md:grid-cols-2">
             <Reveal><div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-8">
               <p className="text-sm text-cyan-300">September 2025 – November 2025</p>
@@ -545,7 +595,6 @@ export default function Home() {
               <ul className="mt-6 space-y-3 text-sm leading-6 text-gray-400">
                 <li>• Contributed to frontend development for a POS management system.</li>
                 <li>• Developed features using Next.js, TypeScript, JavaScript, and CSS.</li>
-                <li>• Migrated and implemented components from JavaScript to TypeScript.</li>
                 <li>• Implemented a Stores page based on a Figma design.</li>
                 <li>• Fixed QA issues and collaborated with developers and project managers.</li>
               </ul>
@@ -562,9 +611,11 @@ export default function Home() {
 
       <section id="contact" className="scroll-mt-24 border-t border-white/10 bg-gradient-to-b from-cyan-400/[0.06] to-transparent px-6 py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">Have a project in mind?</p>
-          <h2 className="mt-4 text-4xl font-bold sm:text-5xl">Let’s build a better workflow together.</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-400">If you need support with GoHighLevel funnels, CRM organization, email management, or appointment booking, I’d be happy to hear about your project.</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">Let's Connect</p>
+          <h2 className="mt-4 text-4xl font-bold sm:text-5xl">Let's work on something meaningful.</h2>
+          <p className="mx-auto mt-6 max-w-2xl text-md leading-8 text-gray-400">I'm open to opportunities 
+            where I can contribute, learn new technologies, work on practical solutions, 
+            and support projects that combine technical skills, digital systems, and organized processes.</p>
           <a href={`mailto:${email}`} className="mt-9 inline-flex rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-slate-950 transition hover:bg-cyan-300">Email Me ↗</a>
           <p className="mt-5 text-sm text-gray-500">{email}</p>
         </div>
@@ -573,7 +624,7 @@ export default function Home() {
       <footer className="border-t border-white/10 px-6 py-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-sm text-gray-500 md:flex-row">
           <p>© {new Date().getFullYear()} Mark Daniel Fernandez</p>
-          <p>GoHighLevel Specialist / Virtual Assistant Portfolio</p>
+          <p>Computer Science Graduate | Technical & Digital Systems Portfolio</p>
           <a href={`mailto:${email}`} className="text-cyan-300 hover:text-cyan-200">Email Me ↗</a>
         </div>
       </footer>
