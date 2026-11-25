@@ -269,7 +269,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#07111f] text-white">
       <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#07111f]/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#home" className="text-xl font-bold tracking-tight">M<span className="text-cyan-400">.</span></a>
+          <a href="#home" className="text-xl font-bold tracking-tight">MRK<span className="text-cyan-400">Solutions.</span></a>
           <div className="hidden items-center gap-7 md:flex">
             {[
               ["Services", "#services"], ["Tools", "#tools"],
@@ -303,7 +303,7 @@ export default function Home() {
                 willingness to learn and adapt.
               </p>
               <div className="mt-9 flex flex-wrap gap-4">
-                <a href="#other-projects" className="rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300">Explore My Projects</a>
+                <a href="#projects" className="rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300">Explore My Projects</a>
                 <a href={`mailto:${email}`} className="rounded-lg border border-cyan-400/60 px-6 py-3 font-semibold text-cyan-300 transition hover:bg-cyan-400/10">Email Me</a>
               </div>
               <p className="mt-6 text-sm text-gray-500">Philippines · Open to remote opportunities</p>
@@ -330,10 +330,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="scroll-mt-24 px-6 py-24">
+      <section id="services" className="scroll-mt-24 px-6 py-24 border-y border-white/10">
         <div className="mx-auto max-w-6xl">
           <SectionTitle number="01" title="What I Can Contribute" />
-          <p className="mb-10 max-w-2xl text-gray-400">Support for the key steps that help businesses attract leads, organize contacts, and manage customer appointments.</p>
+          <p className="mb-10 max-w-2xl text-gray-400">Contributing to practical digital 
+            solutions through software development, business systems, technical 
+            problem-solving, and operational support to improve everyday processes.</p>
           <div className="grid gap-5 md:grid-cols-2">
             {services.map((service) => <Reveal key={service.number}>
               <article className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition hover:-translate-y-1 hover:border-cyan-400/40">
