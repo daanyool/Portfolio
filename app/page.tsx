@@ -4,6 +4,74 @@ import { useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 
+type ProjectMediaProps = {
+  title: string;
+  loomUrl?: string;
+  evidence?: { title: string; image: string }[];
+};
+
+function ProjectMedia({
+  title,
+  loomUrl = "",
+  evidence = [],
+}: ProjectMediaProps) {
+  const loomId = loomUrl.trim().match(
+    /^https:\/\/(?:www\.)?loom\.com\/(?:share|embed)\/([a-z0-9]+)\/?(?:[?#].*)?$/i
+  )?.[1];
+
+  if (!loomId && evidence.length === 0) return null;
+
+  return (
+    <div className="mt-9 space-y-8">
+      {loomId && (
+        <div>
+          <h4 className="text-xs font-semibold uppercase tracking-widest text-cyan-400">
+            Video walkthrough
+          </h4>
+          <iframe
+            src={`https://www.loom.com/embed/${loomId}`}
+            title={`${title} video walkthrough`}
+            loading="lazy"
+            allow="fullscreen"
+            allowFullScreen
+            className="mt-4 block aspect-video w-full rounded-xl border border-white/10 bg-black"
+          />
+        </div>
+      )}
+
+      {evidence.length > 0 && (
+        <div>
+          <h4 className="text-xs font-semibold uppercase tracking-widest text-cyan-400">
+            Project screenshots
+          </h4>
+          <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {evidence.map((item) => (
+              <a
+                key={item.image}
+                href={item.image}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] hover:border-cyan-400/40"
+              >
+                <div className="relative aspect-video bg-slate-900">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-contain"
+                  />
+                </div>
+                <p className="p-4 text-sm font-medium">{item.title} ↗</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 const ghlProjects = [
   {
     title: "FreshCut Barbershop",
@@ -42,6 +110,7 @@ const ghlProjects = [
       "Prepared email messaging for lead engagement and appointment scheduling.",
       "Aligned the funnel and calendar experience with the agency's brand identity.",
     ],
+    loomlink: "https://www.loom.com/share/8fdd088215ac45b686a0f2b7e8a669be",
     tools: ["GoHighLevel", "Funnels", "CRM Pipelines", "Calendars", "Forms", "Email", "Workflows"],
     evidence: [
       { title: "Lead Generation Funnel", image: "/projects/socialboost-funnel.png"},
@@ -78,13 +147,18 @@ const academicProjects = [
     description:
       "An AI-powered disaster management system designed to help barangay residents report and monitor flood and fire incidents.",
     technologies: ["Python", "Django", "XLM-RoBERTa", "CLIP"],
-    github: "https://github.com/rjnvrs/Smartbash-App",
+    github: "https://github.com/daanyool/Smartbash",
     contributions: [
       "Worked on text classification using XLM-RoBERTa.",
       "Prepared and processed the dataset for disaster report classification.",
       "Trained and evaluated the text classification model.",
       "Worked on CLIP-based image validation.",
       "Integrated AI predictions into the reporting workflow.",
+    ],
+    "evidence": [
+      { "title": "Model Training", "image": "/projects/smartbash-ai-training.png" },
+      { "title": "CLIP Integration", "image": "/projects/smartbash-clip.png" },
+      { "title": "Model Prediction", "image": "/projects/smartbash-xlm-prediction.png" }
     ],
   },
   {
@@ -94,11 +168,17 @@ const academicProjects = [
       "An AI-powered web application using a BERT-based NLP model to classify user input and provide the type and level of anxiety.",
     technologies: ["Python", "BERT", "NLP", "React"],
     github: "https://github.com/daanyool/EchoMind",
+    loomlink: "https://www.loom.com/share/faa7b3256c8c423f957946e160165cb9",
     contributions: [
       "Trained the BERT-based NLP model and prepared training data.",
       "Developed Python scripts for processing user input.",
       "Passed predicted classes from the NLP model to the frontend.",
       "Contributed to frontend development.",
+    ],
+    "evidence": [
+      { "title": "Model Training", "image": "/projects/echomind-training.png" },
+      { "title": "Landing Page", "image": "/projects/echomind-ui.png" },
+      { "title": "Prediction Output", "image": "/projects/echomind-prediction.png" }
     ],
   },
   {
@@ -114,6 +194,10 @@ const academicProjects = [
       "Implemented and modified application functionality.",
       "Fixed issues identified during testing and QA.",
     ],
+    "evidence": [
+      { "title": "Backend Code Snippet", "image": "/projects/resort-backend.png" },
+      { "title": "Dashboard", "image": "/projects/resort-ui.png" },
+    ],
   },
   {
     title: "Nutritional Information App",
@@ -126,6 +210,10 @@ const academicProjects = [
       "Developed the landing page and redesigned sign-in and sign-up interfaces.",
       "Implemented allergy management features, including add, edit, and delete functionality.",
       "Created health-information carousel sections.",
+    ],
+    "evidence": [
+      { "title": "Login Page", "image": "/projects/nutrition-auth.png" },
+      { "title": "Landing Page", "image": "/projects/nutrition-landing.png" },
     ],
   },
 ];
@@ -269,7 +357,15 @@ export default function Home() {
     <main className="min-h-screen bg-[#07111f] text-white">
       <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#07111f]/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#home" className="text-xl font-bold tracking-tight">MRK<span className="text-cyan-400">Solutions.</span></a>
+          <a href="#home">
+            <Image
+              src="/M-logo.png"
+              alt="MRK Solutions"
+              width={150}
+              height={100}
+              className="h-auto w-auto sm:h-10"
+            />
+          </a>
           <div className="hidden items-center gap-7 md:flex">
             {[
               ["Services", "#services"], ["Tools", "#tools"],
@@ -533,7 +629,20 @@ export default function Home() {
                   <div className="mt-5 flex flex-wrap gap-2">{project.technologies.map((tech) => <span key={tech} className="rounded-full bg-white/5 px-3 py-1 text-xs text-gray-500">{tech}</span>)}</div>
                   <button onClick={() => setOpenAcademic(isOpen ? null : project.title)} className="mt-6 text-sm mr-6 font-semibold text-cyan-300">{isOpen ? "Hide contribution ↑" : "View my contribution →"}</button>
                   {isOpen && <ul className="mt-5 space-y-3 border-t border-white/10 pt-5 text-sm leading-6 text-gray-400">{project.contributions.map((item) => <li key={item}>• {item}</li>)}</ul>}
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block text-sm text-gray-400 hover:text-white">GitHub repository ↗</a>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-block text-sm text-gray-400 hover:text-white"
+                  >
+                    GitHub repository ↗
+                  </a>
+
+                  <ProjectMedia
+                    title={project.title}
+                    loomUrl={project.loomlink}
+                    evidence={project.evidence}
+                  />
                 </article>
               </Reveal>;
             })}
@@ -570,13 +679,11 @@ export default function Home() {
                   {isOpen && <div className="border-t border-white/10 bg-black/20 p-7 md:p-9">
                     <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400">What I worked on</p>
                     <ul className="mt-5 grid gap-3 md:grid-cols-2">{project.implementation.map((item) => <li key={item} className="flex gap-3 text-sm leading-6 text-gray-400"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />{item}</li>)}</ul>
-                    <div className="mt-9">
-                      <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400">Project screenshots</p>
-                      <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{project.evidence.map((item) => <div key={item.title} className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
-                        <div className="relative aspect-video bg-slate-800"><Image src={item.image} alt={item.title} fill className="object-cover" /></div>
-                        <div className="p-4"><h4 className="font-medium">{item.title}</h4></div>
-                      </div>)}</div>
-                    </div>
+                    <ProjectMedia
+                      title={project.title}
+                      loomUrl={project.loomlink}
+                      evidence={project.evidence}
+                    />
                   </div>}
                 </article>
               </Reveal>;
@@ -587,26 +694,44 @@ export default function Home() {
       </section>
 
       <section id="experience" className="scroll-mt-24 px-6 py-24">
-        <div className="mx-auto max-w-6xl">
-          <SectionTitle number="04" title="Professional Experience & Education" />
-          <div className="grid gap-6 md:grid-cols-2">
-            <Reveal><div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-sm text-cyan-300">September 2025 – November 2025</p>
-              <h3 className="mt-3 text-2xl font-semibold">Software Developer Intern</h3>
-              <p className="mt-1 text-gray-500">Right Apps Incorporated</p>
-              <ul className="mt-6 space-y-3 text-sm leading-6 text-gray-400">
-                <li>• Contributed to frontend development for a POS management system.</li>
-                <li>• Developed features using Next.js, TypeScript, JavaScript, and CSS.</li>
-                <li>• Implemented a Stores page based on a Figma design.</li>
-                <li>• Fixed QA issues and collaborated with developers and project managers.</li>
-              </ul>
-            </div></Reveal>
-            <Reveal><div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-8">
-              <p className="text-sm text-cyan-300">2022 – 2026</p>
-              <h3 className="mt-3 text-2xl font-semibold">Bachelor of Science in Computer Science</h3>
-              <p className="mt-1 text-gray-500">University of Cebu</p>
-              <p className="mt-6 leading-7 text-gray-400">A technical academic foundation in software development, web applications, and artificial intelligence, supporting a structured and analytical approach to digital systems.</p>
-            </div></Reveal>
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:gap-6">
+          <div>
+            <SectionTitle number="04" title="Experience" />
+            <Reveal>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+                <p className="text-sm text-cyan-300">
+                  September 2025 – November 2025
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold">
+                  Software Developer Intern
+                </h3>
+                <p className="mt-1 text-gray-500">Right Apps Incorporated</p>
+                <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-6 text-gray-400">
+                  <li>Contributed to frontend development for a POS management system.</li>
+                  <li>Developed features using Next.js, TypeScript, JavaScript, and CSS.</li>
+                  <li>Implemented a Stores page based on a Figma design.</li>
+                  <li>Fixed QA issues and collaborated with developers and project managers.</li>
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+
+          <div id="academic" className="scroll-mt-24">
+            <SectionTitle number="05" title="Education" />
+            <Reveal>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+                <p className="text-sm text-cyan-300">2022 – 2026</p>
+                <h3 className="mt-3 text-2xl font-semibold">
+                  Bachelor of Science in Computer Science
+                </h3>
+                <p className="mt-1 text-gray-500">University of Cebu</p>
+                <p className="mt-6 leading-7 text-gray-400">
+                  A technical academic foundation in software development, web
+                  applications, and artificial intelligence, supporting a structured
+                  and analytical approach to digital systems.
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
